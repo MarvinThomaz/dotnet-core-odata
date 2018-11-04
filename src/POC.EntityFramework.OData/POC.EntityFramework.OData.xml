@@ -1,0 +1,751 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>POC.EntityFramework.OData</name>
+    </assembly>
+    <members>
+        <member name="T:POC.EntityFramework.OData.Application.Commands.CreateAddressCommand">
+            <summary>
+            Comando de criação de endereço
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Commands.CreateAddressCommand.#ctor(POC.EntityFramework.OData.Domain.Repositories.IAddressRepository)">
+            <summary>
+            Construtor do comando
+            </summary>
+            <param name="repository">Repositório de endereços.</param>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Application.Commands.CreateAddressCommand.Model">
+            <summary>
+            Modelo de criação de endereço
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Commands.CreateAddressCommand.Execute(System.Guid)">
+            <summary>
+            Método de execução de comando.
+            </summary>
+            <param name="personKey">Chave da pessoa</param>
+            <returns>Endereço criado.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Application.Commands.CreatePersonCommand">
+            <summary>
+            Comando de criação de pessoa
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Commands.CreatePersonCommand.#ctor(POC.EntityFramework.OData.Domain.Repositories.IPersonRepository)">
+            <summary>
+            Construtor do comando.
+            </summary>
+            <param name="repository">Repositório de pessoas</param>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Application.Commands.CreatePersonCommand.Model">
+            <summary>
+            Modelo de criação de pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Commands.CreatePersonCommand.Execute">
+            <summary>
+            Método de execução do comando
+            </summary>
+            <returns>Pesso acriada.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Application.Queries.GetAddressesByPersonQuery">
+            <summary>
+            Query de busca de endereços.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Queries.GetAddressesByPersonQuery.#ctor(POC.EntityFramework.OData.Domain.Repositories.IAddressRepository)">
+            <summary>
+            Construtor da query.
+            </summary>
+            <param name="repository">Repositório de endereços.</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Queries.GetAddressesByPersonQuery.Execute(System.Guid)">
+            <summary>
+            Método de execução da query.
+            </summary>
+            <param name="personKey">Chave da pessoa.</param>
+            <returns>Listagem de endereços</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Application.Queries.GetAddressesQuery">
+            <summary>
+            Consulta de endereços.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Queries.GetAddressesQuery.#ctor(POC.EntityFramework.OData.Domain.Repositories.IAddressRepository)">
+            <summary>
+            Construtor da consulta
+            </summary>
+            <param name="repository">Repositório de endereços.</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Queries.GetAddressesQuery.Execute">
+            <summary>
+            Método de execução da consulta
+            </summary>
+            <returns>Listagem de endereços</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Application.Queries.GetPersonsQuery">
+            <summary>
+            Query de busca de pessoas.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Queries.GetPersonsQuery.#ctor(POC.EntityFramework.OData.Domain.Repositories.IPersonRepository)">
+            <summary>
+            Construtor da query.
+            </summary>
+            <param name="repository">Repositório de pessoas</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Queries.GetPersonsQuery.Execute">
+            <summary>
+            Método de exeução da query.
+            </summary>
+            <returns>Listagem de pessoas.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Application.Services.AddressApplicationService">
+            <summary>
+            Serviço de gerênciamento de endereços.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Services.AddressApplicationService.#ctor(POC.EntityFramework.OData.Domain.Commands.ICreateAddressCommand,POC.EntityFramework.OData.Domain.Queries.IGetAddressesByPersonQuery,POC.EntityFramework.OData.Domain.Queries.IGetAddressesQuery)">
+            <summary>
+            Construtor do serviço.
+            </summary>
+            <param name="command">Comando de criação de endereço.</param>
+            <param name="getAddressesByPersonQuery">Query de busca de endereços por pessoa.</param>
+            <param name="getAddressesQuery">Query de busca de endereços</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Services.AddressApplicationService.CreateAddress(System.Guid,POC.EntityFramework.OData.Domain.Models.CreateAddressModel)">
+            <summary>
+            Método de criação de endereço.
+            </summary>
+            <param name="personKey">Chave da pessoa.</param>
+            <param name="request">Dados de endereço</param>
+            <returns>Endereço criado.</returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Services.AddressApplicationService.GetAddresses">
+            <summary>
+            Método que busca todos os endereços.
+            </summary>
+            <returns>Listagem de endereços.</returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Services.AddressApplicationService.GetAddressesByPerson(System.Guid)">
+            <summary>
+            Método de busca de endereços.
+            </summary>
+            <param name="personKey">Chave da pessoa.</param>
+            <returns>Listagem de endereços.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Application.Services.PersonApplicationService">
+            <summary>
+            Serviço de gerênciamento de pessoas.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Services.PersonApplicationService.#ctor(POC.EntityFramework.OData.Domain.Commands.ICreatePersonCommand,POC.EntityFramework.OData.Domain.Queries.IGetPersonsQuery)">
+            <summary>
+            Construtor do serviço.
+            </summary>
+            <param name="command">Comando de criação de pessoa.</param>
+            <param name="query">Query de busca de pessoas.</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Services.PersonApplicationService.CreatePerson(POC.EntityFramework.OData.Domain.Models.CreatePersonModel)">
+            <summary>
+            Método de criação de pessoa
+            </summary>
+            <param name="request">Dados de pessoa.</param>
+            <returns>Pessoa criada.</returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Application.Services.PersonApplicationService.GetPersons">
+            <summary>
+            Método de busca de pessoas.
+            </summary>
+            <returns>Listagem de pessoas.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Controllers.AddressesController">
+            <summary>
+            Controller de gerênciamento de endereços.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Controllers.AddressesController.#ctor(POC.EntityFramework.OData.Domain.Services.IAddressApplicationService)">
+            <summary>
+            Contrutor que recebe o serviço de aplicação.
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Controllers.AddressesController.Post(System.Guid,POC.EntityFramework.OData.Domain.Models.CreateAddressModel)">
+            <summary>
+            Método de criação de endereço para uma pessoa.
+            </summary>
+            <param name="personKey">Chave da pessoa</param>
+            <param name="request">Dados do endereço.</param>
+            <returns>Endereço criado.</returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Controllers.AddressesController.Get(System.Guid)">
+            <summary>
+            Método de busca de endereços de uma pessoa.
+            </summary>
+            <param name="personKey">Chave da pessoa</param>
+            <returns>Listagem de endereços</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Controllers.PersonsController">
+            <summary>
+            Classe que gerência os dados de uma pessoa.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Controllers.PersonsController.#ctor(POC.EntityFramework.OData.Domain.Services.IPersonApplicationService)">
+            <summary>
+            Construtor da classe utilizando o serviço da aplicação.
+            </summary>
+            <param name="service">Serviço da aplicação</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Controllers.PersonsController.Post(POC.EntityFramework.OData.Domain.Models.CreatePersonModel)">
+            <summary>
+            Método de criação de pessoa.
+            </summary>
+            <param name="request">Dados para criação da pessoa.</param>
+            <returns>Pessoa criada.</returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Controllers.PersonsController.Get">
+            <summary>
+            Método de busca de pessoa com possibilidade de query odata.
+            </summary>
+            <returns>Listagem de pessoas.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Controllers.OData.AddressesController">
+            <summary>
+            Controller de busca de dados de endereço utilizando o protocolo odata.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Controllers.OData.AddressesController.#ctor(POC.EntityFramework.OData.Domain.Services.IAddressApplicationService)">
+            <summary>
+            Construtor do controller
+            </summary>
+            <param name="service">Serviço de gerênciamento de endereços.</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Controllers.OData.AddressesController.Get">
+            <summary>
+            Método que busca todos os endereços da base e possibilita o filtro via odata.
+            </summary>
+            <returns>Listagem de endereços.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Controllers.OData.PersonsController">
+            <summary>
+            Controller de consulta de pessoas com possibilidade de filtros odata.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Controllers.OData.PersonsController.#ctor(POC.EntityFramework.OData.Domain.Services.IPersonApplicationService)">
+            <summary>
+            Construtor do controller
+            </summary>
+            <param name="service">Serviço de gerênciamento de pessoas.</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Controllers.OData.PersonsController.Get">
+            <summary>
+            Método de busca de pessoas com possibilidade de filtro odata.
+            </summary>
+            <returns>Listagem de pessoas.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Commands.ICreateAddressCommand">
+            <summary>
+            Comando de criação de endereço
+            </summary>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Commands.ICreateAddressCommand.Model">
+            <summary>
+            Modelo de criação de endereço
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Commands.ICreateAddressCommand.Execute(System.Guid)">
+            <summary>
+            Método de execução de comando.
+            </summary>
+            <param name="personKey">Chave da pessoa</param>
+            <returns>Endereço criado.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Commands.ICreatePersonCommand">
+            <summary>
+            Comando de criação de pessoa
+            </summary>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Commands.ICreatePersonCommand.Model">
+            <summary>
+            Modelo de criação de pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Commands.ICreatePersonCommand.Execute">
+            <summary>
+            Método de execução do comando
+            </summary>
+            <returns>Pesso acriada.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Entities.Address">
+            <summary>
+            Entidade de representação de endereço.
+            </summary>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Entities.Address.Key">
+            <summary>
+            Chave de identificação de endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Entities.Address.PersonKey">
+            <summary>
+            Chave da identificaçõa do dono do endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Entities.Address.Street">
+            <summary>
+            Endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Entities.Address.Number">
+            <summary>
+            Número do endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Entities.Person">
+            <summary>
+            Classe de representação de pessoa.
+            </summary>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Entities.Person.Key">
+            <summary>
+            Chave de identificação de pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Entities.Person.Name">
+            <summary>
+            Nome da pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Entities.Person.Nickname">
+            <summary>
+            Apelido da pessoa
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Entities.Person.Age">
+            <summary>
+            Idade da pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Models.CreateAddressModel">
+            <summary>
+            Modelo de criação de endereço.
+            </summary>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreateAddressModel.Street">
+            <summary>
+            Endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreateAddressModel.Number">
+            <summary>
+            Número do endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Models.CreateAddressViewModel">
+            <summary>
+            Modelo de reposta de criaçào de endereço.
+            </summary>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreateAddressViewModel.Key">
+            <summary>
+            Chave de identificação de endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreateAddressViewModel.PersonKey">
+            <summary>
+            Chave da identificaçõa do dono do endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreateAddressViewModel.Street">
+            <summary>
+            Endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreateAddressViewModel.Number">
+            <summary>
+            Número do endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Models.CreatePersonModel">
+            <summary>
+            Modelo de criação de pessoa.
+            </summary>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreatePersonModel.Name">
+            <summary>
+            Nome da pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreatePersonModel.Nickname">
+            <summary>
+            Apelido da pessoa
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreatePersonModel.Age">
+            <summary>
+            Idade da pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Models.CreatePersonViewModel">
+            <summary>
+            Modelo de resposta de criação de pessoa.
+            </summary>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreatePersonViewModel.Key">
+            <summary>
+            Chave da pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreatePersonViewModel.Name">
+            <summary>
+            Nome da pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreatePersonViewModel.Nickname">
+            <summary>
+            Apelido da pessoa
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.CreatePersonViewModel.Age">
+            <summary>
+            Idade da pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Models.GetAddressViewModel">
+            <summary>
+            Modelo de busca de endereço.
+            </summary>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.GetAddressViewModel.Key">
+            <summary>
+            Chave de identificação de endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.GetAddressViewModel.PersonKey">
+            <summary>
+            Chave da identificaçõa do dono do endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.GetAddressViewModel.Street">
+            <summary>
+            Endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.GetAddressViewModel.Number">
+            <summary>
+            Número do endereço.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Models.GetPersonsViewModel">
+            <summary>
+            Modelo de busca de pessoa.
+            </summary>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.GetPersonsViewModel.Key">
+            <summary>
+            Chave da pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.GetPersonsViewModel.Name">
+            <summary>
+            Nome da pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.GetPersonsViewModel.Nickname">
+            <summary>
+            Apelido da pessoa
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:POC.EntityFramework.OData.Domain.Models.GetPersonsViewModel.Age">
+            <summary>
+            Idade da pessoa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Queries.IGetAddressesByPersonQuery">
+            <summary>
+            Query de busca de endereços.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Queries.IGetAddressesByPersonQuery.Execute(System.Guid)">
+            <summary>
+            Método de execução da query.
+            </summary>
+            <param name="personKey">Chave da pessoa.</param>
+            <returns>Listagem de endereços</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Queries.IGetAddressesQuery">
+            <summary>
+            Consulta de endereços.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Queries.IGetAddressesQuery.Execute">
+            <summary>
+            Método de execução da consulta
+            </summary>
+            <returns>Listagem de endereços</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Queries.IGetPersonsQuery">
+            <summary>
+            Query de busca de pessoas.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Queries.IGetPersonsQuery.Execute">
+            <summary>
+            Método de exeução da query.
+            </summary>
+            <returns>Listagem de pessoas.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Repositories.IAddressRepository">
+            <summary>
+            Repositório de endereço
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Repositories.IAddressRepository.Create(POC.EntityFramework.OData.Domain.Entities.Address)">
+            <summary>
+            Método de criação de endereço.
+            </summary>
+            <param name="person">Endereço a ser criado.</param>
+            <returns></returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Repositories.IAddressRepository.Get(System.Guid)">
+            <summary>
+            Método de busca de endereços
+            </summary>
+            <param name="personKey">Chave da pessoa</param>
+            <returns>Listagem de endereços.</returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Repositories.IAddressRepository.Get">
+            <summary>
+            Método de listagem de todos os endereços.
+            </summary>
+            <returns>Listagem de endereços</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Repositories.IPersonRepository">
+            <summary>
+            Repositório de pessoas.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Repositories.IPersonRepository.Create(POC.EntityFramework.OData.Domain.Entities.Person)">
+            <summary>
+            Método de criação de pessoa.
+            </summary>
+            <param name="person">Pessoa a ser criada</param>
+            <returns></returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Repositories.IPersonRepository.Get">
+            <summary>
+            Método de listagem de pessoas.
+            </summary>
+            <returns>Listagem de pessoas.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Services.IAddressApplicationService">
+            <summary>
+            Serviço de gerênciamento de endereços.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Services.IAddressApplicationService.CreateAddress(System.Guid,POC.EntityFramework.OData.Domain.Models.CreateAddressModel)">
+            <summary>
+            Método de criação de endereço.
+            </summary>
+            <param name="personKey">Chave da pessoa.</param>
+            <param name="request">Dados de endereço</param>
+            <returns>Endereço criado.</returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Services.IAddressApplicationService.GetAddresses">
+            <summary>
+            Método que busca todos os endereços.
+            </summary>
+            <returns>Listagem de endereços.</returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Services.IAddressApplicationService.GetAddressesByPerson(System.Guid)">
+            <summary>
+            Método de busca de endereços.
+            </summary>
+            <param name="personKey">Chave da pessoa.</param>
+            <returns>Listagem de endereços.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Domain.Services.IPersonApplicationService">
+            <summary>
+            Serviço de gerênciamento de pessoas.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Services.IPersonApplicationService.CreatePerson(POC.EntityFramework.OData.Domain.Models.CreatePersonModel)">
+            <summary>
+            Método de criação de pessoa
+            </summary>
+            <param name="request">Dados de pessoa.</param>
+            <returns>Pessoa criada.</returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Domain.Services.IPersonApplicationService.GetPersons">
+            <summary>
+            Método de busca de pessoas.
+            </summary>
+            <returns>Listagem de pessoas.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Infrastructure.Context.Context">
+            <summary>
+            Contexto de gerênciamento de dados de pessoa.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Infrastructure.Context.Context.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Construtor do contexto.
+            </summary>
+            <param name="configuration">Configuração de aplicação</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Infrastructure.Context.Context.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Método de configuração de contexto.
+            </summary>
+            <param name="optionsBuilder"></param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Infrastructure.Context.Context.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Método de configuração dos dados que serão persistidos.
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Infrastructure.Context.ODataContext">
+            <summary>
+            Classe de configuração de odata.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Infrastructure.Context.ODataContext.ConfigureOData(Microsoft.AspNetCore.Routing.IRouteBuilder)">
+            <summary>
+            Método de configuração de odata na aplicação.
+            </summary>
+            <param name="routeBuilder"></param>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Infrastructure.Repositories.AddressRepository">
+            <summary>
+            Repositório de endereço
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Infrastructure.Repositories.AddressRepository.#ctor(POC.EntityFramework.OData.Infrastructure.Context.Context)">
+            <summary>
+            Construtor do repositório.
+            </summary>
+            <param name="context">Contexto de acesso aos dados.</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Infrastructure.Repositories.AddressRepository.Create(POC.EntityFramework.OData.Domain.Entities.Address)">
+            <summary>
+            Método de criação de endereço.
+            </summary>
+            <param name="person">Endereço a ser criado.</param>
+            <returns></returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Infrastructure.Repositories.AddressRepository.Get(System.Guid)">
+            <summary>
+            Método de busca de endereços
+            </summary>
+            <param name="personKey">Chave da pessoa</param>
+            <returns>Listagem de endereços.</returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Infrastructure.Repositories.AddressRepository.Get">
+            <summary>
+            Método de listagem de todos os endereços.
+            </summary>
+            <returns>Listagem de endereços</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Infrastructure.Repositories.PersonRepository">
+            <summary>
+            Repositório de pessoas.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Infrastructure.Repositories.PersonRepository.#ctor(POC.EntityFramework.OData.Infrastructure.Context.Context)">
+            <summary>
+            Construtor do repositório.
+            </summary>
+            <param name="context">Contexto de acesso aos dados.</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Infrastructure.Repositories.PersonRepository.Create(POC.EntityFramework.OData.Domain.Entities.Person)">
+            <summary>
+            Método de criação de pessoa.
+            </summary>
+            <param name="person">Pessoa a ser criada</param>
+            <returns></returns>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Infrastructure.Repositories.PersonRepository.Get">
+            <summary>
+            Método de listagem de pessoas.
+            </summary>
+            <returns>Listagem de pessoas.</returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Program">
+            <summary>
+            Programa de inicialização.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Program.Main(System.String[])">
+            <summary>
+            Método de inicialização.
+            </summary>
+            <param name="args">Argumentos para inicializaçõa</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Criação do host.
+            </summary>
+            <param name="args">Argumentos de inicialização.</param>
+            <returns></returns>
+        </member>
+        <member name="T:POC.EntityFramework.OData.Startup">
+            <summary>
+            Classe de configuração da aplicação.
+            </summary>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Construtor
+            </summary>
+            <param name="configuration">Configurações da aplicação.</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Método de configuração de serviços da aplicação.
+            </summary>
+            <param name="services">Serviços</param>
+        </member>
+        <member name="M:POC.EntityFramework.OData.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Método de configuração de pacotes da aplicaçào.
+            </summary>
+            <param name="app">Aplicaçào.</param>
+            <param name="env">Ambiente</param>
+        </member>
+    </members>
+</doc>

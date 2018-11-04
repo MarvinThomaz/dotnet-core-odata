@@ -1,0 +1,21 @@
+﻿CREATE SCHEMA `DB_PERSON_ODATA_TEST` ;
+
+CREATE TABLE `DB_PERSON_ODATA_TEST`.`Person`
+(
+  `Key`			CHAR(36)		NOT NULL,
+  `Name`		VARCHAR(50)		NOT NULL,
+  `Nickname`	VARCHAR(50)		NOT NULL,
+  `Age`			INT				NOT NULL,
+  
+  PRIMARY KEY (`Key`)
+);
+
+CREATE TABLE `DB_PERSON_ODATA_TEST`.`Address`
+(
+  `Key`			CHAR(36)		NOT NULL,
+  `PersonKey`	CHAR(36)		NOT NULL,
+  `Street`		VARCHAR(50)		NOT NULL,
+  `Number`		INT				NOT NULL,
+  
+  PRIMARY KEY (`Key`)
+);
