@@ -340,3 +340,4 @@ ASALocalRun/
 .vscode/solution-explorer/template-list.json
 .vscode/solution-explorer/template-parameters.js
 src/POC.EntityFramework.OData/appsettings.json
+src/POC.EntityFramework.OData/appsettings.json
